@@ -1,0 +1,260 @@
+@import url(https://fonts.google.com/share?selection.family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900|Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900|Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900|Roboto+Condensed:ital,wght@0,100..900;1,100..900);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1, 2s;
+}
+
+@keyframes show-content {
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.navbar .logo {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.navbar ul {
+    display: flex;
+}
+
+.navbar ul li {
+    list-style: none;
+    margin-left: 35px;
+}
+
+.navbar ul li a {
+    font-size: 20px;
+    font-weight: 500;
+    transition: .5;
+}
+
+.navbar ul li:hover a,
+.navbar ul li.active a {
+    color: #7cf03d;
+    box-shadow: 0px 0.3px #e70f85;
+
+}
+
+.Home {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    ;
+    height: 100vh;
+    padding: 60px 9% o;
+    color: #fff;
+    box-shadow: #e70f85;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1, 6s;
+}
+
+.Home-info h1 {
+    font-size: 35px;
+}
+
+.Home-info h2 {
+    display: inline-block;
+    font-size: 25px;
+    margin-top: -10px;
+
+}
+
+.Home-info h2 span {
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    -webkit-text-stroke: .7px #59f206;
+    animation: display-text 16s linear infinite;
+    animation-delay: calc(-4s * var(--i));
+}
+
+@keyframes display-text {
+
+    25%,
+    100% {
+        display: none;
+    }
+}
+
+
+.Home-info h2 span::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 0%;
+    border-right: 2px solid #7cf03d;
+    color: #7cf03d;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: fill-tex 6s linear infinite;
+}
+
+@keyframes fill-text {
+
+    10%,
+    100% {
+        width: 0%;
+    }
+
+    70%,
+    90% {
+        width: 100%;
+    }
+}
+
+
+.Home-info .btn-sci {
+    display: flex;
+    align-items: center;
+}
+
+.Btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background: #7cf03d;
+    border: 2px solid #7cf03d;
+    border-radius: 30px;
+    box-shadow: 0 0 10px #e70f85;
+    font-size: 16px;
+    color: #1f242d;
+    font-weight: 600;
+    transition: .5s;
+}
+
+.Btn:hover {
+    background: transparent;
+    color: #7cf03d;
+    box-shadow: none;
+}
+
+.Home-info .btn-sci .Sci {
+    margin-left: 23px;
+}
+
+.Home-info .btn-sci .Sci a {
+    display: inline-flex;
+    padding: 8px;
+    border: 2px solid #7cf03d;
+    border-radius: 55%;
+    font-size: 20px;
+    color: #7cf03d;
+    box-shadow: 0 3px #e70f85;
+    margin: 0 8px;
+    transition: .5s;
+}
+
+.Home-info .btn-sci .Sci a:hover {
+    background-color: #7cf03d;
+    color: #1f242d;
+    box-shadow: 0 0 10px #e70f85;
+}
+
+.Home-img .Img-box {
+    position: relative;
+    width: 32vw;
+    height: 32vw;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Home-img .Img-box::before,
+.Home-img .Img-box::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: conic-gradient(transparent, transparent,
+            transparent #59f206);
+    transform: rotate(0deg);
+    animation: rotate-border 10s linear infinite;
+}
+
+.Home-img .Img-box::after {
+    animation-delay: -5s;
+}
+
+@keyframes rotate-border {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.Home-img .Img-box .Img-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #1f242d;
+    border: 0.1px solid #1f242d;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    overflow: hidden;
+
+}
+
+.Home-img .Img-box .Img-item img {
+    position: absolute;
+    display: block;
+    top: 15px;
+    width: 79%;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+}
+
+.bars-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+}
+
+.bars-animation .bar {
+    width: 100%;
+    height: 100%;
+    background: #1f242d;
+    transform: translateY(-100%);
+    animation: show-bars .5s ease-in-out forwards;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes show-bars {
+    100% {
+        transform: translateY(0%);
+    }
+}
